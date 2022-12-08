@@ -10,7 +10,6 @@ import { TaskObject } from "../../interfaces/task-object";
 export class TaskListComponent implements OnInit {
 
   public tasks: TaskObject[] = [];
-  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
 
   constructor(private designPatternsService: DesignPatternsClientService) {
   }
