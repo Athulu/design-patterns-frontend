@@ -1,0 +1,28 @@
+/*.example-spacer {*/
+/*  flex: 1 1 auto;*/
+/*}*/
+
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+  font-size: 65px;
+  font-family: Arial;
+  justify-content: center;
+}
+
+svg#clouds {
+  position: fixed;
+  bottom: -160px;
+  left: -230px;
+  z-index: -10;
+  width: 1920px;
+}
