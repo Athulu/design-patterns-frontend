@@ -12,4 +12,5 @@ export class AdapterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
 }

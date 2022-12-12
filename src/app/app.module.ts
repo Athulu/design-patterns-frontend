@@ -22,6 +22,8 @@ import { IteratorComponent } from './components/iterator/iterator.component';
 import { ObserwatorComponent } from './components/obserwator/obserwator.component';
 import { DekoratorComponent } from './components/dekorator/dekorator.component';
 import { AdapterComponent } from './components/adapter/adapter.component';
+import {DownloadFileService} from "./services/download-file.service";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -50,9 +52,10 @@ import { AdapterComponent } from './components/adapter/adapter.component';
     ReactiveFormsModule,
     MatNativeDateModule,
     MatListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatProgressBarModule
   ],
-  providers: [],
+  providers: [DownloadFileService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
