@@ -7,7 +7,7 @@
     <p>Fabryka Metoda Wytwórcza jest przydatna, gdy istnieje duża liczba podobnych obiektów, które są tworzone w różnych miejscach w kodzie. Pozwala to zmniejszyć liczbę różnych klas tworzących te obiekty, a także zmniejszyć liczbę koniecznych zmian, gdy trzeba dokonać zmian w implementacji tworzenia obiektów.</p>
     <br>
     <br>
-    <img src="http://172.23.176.1:8081/files/fabrykamd.png" />
+    <img src="http://127.0.0.1:8081/files/fabrykamd.png" />
     <br>
     <div id="div2">
       <p><strong>Product</strong> deklaruje interfejs, który jest wspólny dla wszystkich obiektów zwracanych przez twórcę oraz jego podklasy</p>
@@ -39,18 +39,17 @@
     <button mat-raised-button color="primary" class="upload-btn" (click)="fileUpload.click()" style="margin-right: 50px">Wybierz plik</button>
     <button type="button" (click)="submitData()" mat-raised-button color="primary">Rozpocznij test</button><br>
     <!--    <mat-progress-bar mode="indeterminate" *ngIf="isTesting()"></mat-progress-bar>-->
-    <!--    <div *ngIf="solution">-->
-    <!--      <strong>Wynik: {{solution.resultsPoints}}%</strong>-->
-    <!--    </div>-->
     <br>
   </div>
-  <!--  <input type="button" (click)="submitData()" value="Wyślij plik"/> <br/>-->
 
-
-  <!--  <button type="button" mat-raised-button  (click)="fileInput.click()">Choose File</button>-->
-  <!--  <input hidden (change)="getName(name.value)" #name #fileInput type="file" id="file">-->
-
-
+  <div *ngIf="IsListEmpty()">
+    <p *ngFor="let resultObject of results">
+      <b *ngIf="resultObject.isCorrect==true" style="color: green">poprawnie</b>
+      <b *ngIf="resultObject.isCorrect==false" style="color: red">niepoprawnie</b>
+      {{resultObject.outputData}}
+    </p>
+    <br><br>
+  </div>
 </div>
 
 

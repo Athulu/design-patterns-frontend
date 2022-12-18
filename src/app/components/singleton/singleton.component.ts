@@ -3,6 +3,8 @@ import {DownloadFileService} from "../../services/download-file.service";
 import {HttpClient} from "@angular/common/http";
 import {DesignPatternsClientService} from "../../services/design-patterns-client.service";
 import {SolutionObject} from "../../interfaces/solution-object";
+import {CookieService} from "../../services/cookie.service";
+import {ResultObject} from "../../interfaces/result-object";
 
 @Component({
   selector: 'app-singleton',
@@ -10,20 +12,26 @@ import {SolutionObject} from "../../interfaces/solution-object";
   styleUrls: ['./singleton.component.css']
 })
 export class SingletonComponent implements OnInit {
-  constructor(private httpClient:HttpClient, private designPatternsService: DesignPatternsClientService) { }
+  constructor(private httpClient:HttpClient, private designPatternsService: DesignPatternsClientService, private cookieService:CookieService) { }
 
   // @ts-ignore
-  solution: SolutionObject;
+  public results: ResultObject[] = [];
 
   ngOnInit(): void {
+    this.designPatternsService.getResultsList("singleton").subscribe((results) => {
+      this.results = results;
+    });
   }
-
   name: string = '';
   file: any;
-  // isDuringTest = true;
+  cookie: any;
 
-  getName(name:string){
-    this.name = name;
+  IsListEmpty(): boolean{
+    if(this.results.length < 1){
+      return false;
+    }else {
+      return true;
+    }
   }
 
   getFile(event:any){
@@ -32,16 +40,17 @@ export class SingletonComponent implements OnInit {
   }
 
   submitData(){
-    // this.isDuringTest = true;
-    // this.isTesting()
+    const cookie = new CookieService();
+    sessionStorage.setItem("singleton", cookie.cookie);
+
     let formData = new FormData();
     formData.set("name", this.name);
     formData.set("file", this.file);
+    // @ts-ignore
+    formData.set("cookie", sessionStorage.getItem("singleton")); //cookie.cookie
 
     this.httpClient.post('http://localhost:8080/testing/1', formData)
       .subscribe((response) =>{});
-    // this.isDuringTest = false;
-    // this.isTesting()
   }
 
   // checkResult(){

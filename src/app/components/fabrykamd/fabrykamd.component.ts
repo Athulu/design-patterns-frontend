@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {DesignPatternsClientService} from "../../services/design-patterns-client.service";
+import {ResultObject} from "../../interfaces/result-object";
+import {CookieService} from "../../services/cookie.service";
 
 @Component({
   selector: 'app-fabrykamd',
@@ -9,12 +11,25 @@ import {DesignPatternsClientService} from "../../services/design-patterns-client
 })
 export class FabrykamdComponent implements OnInit {
 
+  // @ts-ignore
+  public results: ResultObject[] = [];
   name: string = '';
   file: any;
 
   constructor(private httpClient:HttpClient, private designPatternsService: DesignPatternsClientService) { }
 
   ngOnInit(): void {
+    this.designPatternsService.getResultsList("fabrykamd").subscribe((results) => {
+      this.results = results;
+    });
+  }
+
+  IsListEmpty(): boolean{
+    if(this.results.length < 1){
+      return false;
+    }else {
+      return true;
+    }
   }
 
   getFile(event:any){
@@ -23,9 +38,14 @@ export class FabrykamdComponent implements OnInit {
   }
 
   submitData(){
+    const cookie = new CookieService();
+    sessionStorage.setItem("fabrykamd", cookie.cookie);
+
     let formData = new FormData();
     formData.set("name", this.name);
     formData.set("file", this.file);
+    // @ts-ignore
+    formData.set("cookie", sessionStorage.getItem("fabrykamd")); //cookie.cookie
 
     this.httpClient.post('http://localhost:8080/testing/2', formData)
       .subscribe((response) =>{});
