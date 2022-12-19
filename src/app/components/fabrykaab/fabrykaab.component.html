@@ -1,3 +1,53 @@
 <div id="div1">
-  <p>fabrykaab works!</p>
+  <div>
+    <p><strong>Fabryka abstrakcyjna</strong> to wzorzec projektowy, który umożliwia tworzenie obiektów bez musu podawania konkretnego typu obiektu. Jest to szczególnie przydatne, gdy istnieje wiele możliwych typów obiektów, które są podobne w strukturze, ale mogą mieć różne cechy.</p>
+    <p>Działa poprzez definiowanie interfejsu lub klasy bazowej, która zawiera metody i właściwości wspólne dla wszystkich typów obiektów. Następnie tworzy się klasy pochodne, które dziedziczą z interfejsu lub klasy bazowej, zawierając specyficzne cechy dla danego typu obiektu. Fabryka abstrakcyjna ma wtedy metodę, która tworzy nowe instancje konkretnego typu obiektu, wywołując odpowiednią klasę pochodną.</p>
+    <p>Fabryka abstrakcyjna pozwala programiście na tworzenie nowych typów obiektów bez konieczności modyfikowania istniejących klas. Pozwala również na łatwe tworzenie wszelkiego rodzaju kompozycji obiektów, bez potrzeby tworzenia skomplikowanych hierarchii klas.</p>
+    <br>
+    <br>
+    <img src="http://127.0.0.1:8081/files/fabrykaab.png" />
+    <br>
+    <div id="div2">
+      <p><b>AbstractProductA</b> i <b>AbstractProductB</b> deklarują interfejsy odmiennych produktów, które składają się na wspólną rodzinę.</p>
+      <p><b>ProductA</b> i <b>ProductB</b> to różnorakie implementacje abstrakcyjnych produktów, pogrupowane według wariantów. Każdy abstrakcyjny produkt musi być zaimplementowany we wszystkich zadanych wariantach.</p>
+      <p>Interfejs <b>AbstractFactory</b> deklaruje zestaw metod służących tworzeniu każdego z abstrakcyjnych produktów.</p>
+      <p><b>Factory1</b> i <b>Factory2</b> implementują metody kreacyjne fabryki abstrakcyjnej. Każda konkretna fabryka jest związana z jakimś określonym wariantem produktu i produkuje wyłącznie meble w tym stylu.</p>
+    </div>
+  </div>
+  <br><br>
+<!--  ZADANIE-->
+  <h1>Zadanie</h1>
+
+  <div>
+    Zaimplementuj wzorzec projektowy Fabryka abstrakcyjna, aby utworzyć aplikację do tworzenia buttona oraz checkboxa dla odpowiedniego systemu.
+    <br>
+    Interfejsy Button, Checkbox i GUIFactory, należy odpowiednio zaimplementować klasami MacOSButton, MacOSCheckbox i MacOSFactory oraz analogicznie dla WindowsButton, WindowsCheckbox i WindowsFactory
+    <br>
+    W klasie Main znajduje się przykładowy kod pobierający nazwę systemu operacyjnego, na którym program zostaje uruchomiony, a następnie na jego podstawie uruchamia odpowiednią fabrykę np. po wykryciu systemu Windows, wywoła fabrykę dla windowsa, która odpowiednio stworzy Button i Checkbox dla tego systemu
+  </div><br>
+
+  <strong>projekt początkowy do pobrania do zadania:</strong><br>
+  <a href="http://127.0.0.1:8081/files/FabrykaAB.zip" download>FabrykaAB.zip</a><br/><br/>
+  <!--  <input type="text" (change)="getName(name.value)" #name /> <br/>-->
+
+  <br>
+  <strong>Wybierz plik, a następnie rozpocznij test:</strong> <br>
+  <div class="file-upload">
+    <input type="file" hidden (change)="getFile($event)" #fileUpload/><br />
+    <button mat-raised-button color="primary" class="upload-btn" (click)="fileUpload.click()" style="margin-right: 50px">Wybierz plik</button>
+    <button type="button" (click)="submitData()" mat-raised-button color="primary">Rozpocznij test</button><br>
+    <!--    <mat-progress-bar mode="indeterminate" *ngIf="isTesting()"></mat-progress-bar>-->
+    <br>
+  </div>
+
+  <div *ngIf="IsListEmpty()">
+    <p *ngFor="let resultObject of results">
+      <b *ngIf="resultObject.isCorrect==true" style="color: green">poprawnie</b>
+      <b *ngIf="resultObject.isCorrect==false" style="color: red">niepoprawnie</b>
+      {{resultObject.outputData}}
+    </p>
+    <br><br>
+  </div>
 </div>
+
+
