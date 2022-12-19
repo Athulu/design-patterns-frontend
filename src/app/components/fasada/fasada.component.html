@@ -1,3 +1,55 @@
 <div id="div1">
-  <p>fasada works!</p>
+  <div>
+    <p><b>Fasada</b> jest używany do ukrycia skomplikowanej logiki i części kodu systemu. Fasada jest interfejsem API, który ułatwia dostęp do systemu. Pozwala on użytkownikowi uzyskać dostęp do wybranych funkcji systemu bez konieczności zgłębiania skomplikowanych szczegółów technicznych. Użytkownik może wybrać, które funkcje systemu chce wykorzystać, a fasada ukryje wszelkie skomplikowane operacje, które trzeba wykonać, aby te funkcje zrealizować.</p>
+    <p>Stworzenie fasady jest wygodnym sposobem integracji twej aplikacji ze skomplikowaną biblioteką posiadającą wiele funkcji, gdy potrzebujesz tylko wąskiego zakresu jej funkcji.</p>
+    <br>
+    <br>
+    <img src="http://127.0.0.1:8081/files/fasada.png" />
+    <br>
+    <div id="div2">
+      <p><b>Shape</b> jest deklaracją interfejsu dla różnych figur</p>
+      <p><b>Circle</b>, <b>Rectangle</b> i <b>Square</b> to różnorakie implementacje interfejsu Shape pewnego systemu.</p>
+      <p>Klasa <b>ShapeMaker</b> używa konkretnych klas z pewnego systemu do delegowania wywołań użytkowników do tych klas.</p>
+    </div>
+  </div>
+  <br><br>
+  <!--  ZADANIE-->
+  <h1>Zadanie</h1>
+
+  <div>
+    Zaimplementuj wzorzec projektowy Fasada na podstawie diagramu podanego powyżej.
+    <br>
+    1) Stwórz interface Shape z funkcją do zaiplementowania draw() zwracająca Stringa.
+    <br>
+    2) Stwórz klasy Circle ,Rectangle i Square implementujące interface Shape, funckja ma zwrócić nazwę klasy, z której pochodzi.
+    <br>
+    3) Stwórz klasę fasady i nazwie ShapeMaker, z 3 zmiennymi typu Shape, do każdej należy w konstruktorze przypisać inny obiekt oraz z funkcjami drawCircle(), drawSquare() i drawRectangle(), zwracające wywołanie funkcji z odpowiednich zmiennych typu Shape.
+    <br>
+    4) Wykorzystaj gotowy kod w klasie Main do przykładowego wykorzystania fasady.
+  </div><br>
+
+  <strong>projekt początkowy do pobrania do zadania:</strong><br>
+  <a href="http://127.0.0.1:8081/files/Fasada.zip" download>Fasada.zip</a><br/><br/>
+  <!--  <input type="text" (change)="getName(name.value)" #name /> <br/>-->
+
+  <br>
+  <strong>Wybierz plik, a następnie rozpocznij test:</strong> <br>
+  <div class="file-upload">
+    <input type="file" hidden (change)="getFile($event)" #fileUpload/><br />
+    <button mat-raised-button color="primary" class="upload-btn" (click)="fileUpload.click()" style="margin-right: 50px">Wybierz plik</button>
+    <button type="button" (click)="submitData()" mat-raised-button color="primary">Rozpocznij test</button><br>
+    <!--    <mat-progress-bar mode="indeterminate" *ngIf="isTesting()"></mat-progress-bar>-->
+    <br>
+  </div>
+
+  <div *ngIf="IsListEmpty()">
+    <p *ngFor="let resultObject of results">
+      <b *ngIf="resultObject.isCorrect==true" style="color: green">poprawnie</b>
+      <b *ngIf="resultObject.isCorrect==false" style="color: red">niepoprawnie</b>
+      {{resultObject.outputData}}
+    </p>
+    <br><br>
+  </div>
 </div>
+
+
