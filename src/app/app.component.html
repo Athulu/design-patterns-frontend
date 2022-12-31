@@ -1,7 +1,12 @@
-<div id="appdiv1">
-  <app-toolbar></app-toolbar><br>
-</div>
-<div id="appdiv2">
-  <app-task-list></app-task-list>
-</div>
+<app-toolbar></app-toolbar><br>
+<app-task-list *ngIf="isOnMainPage()"></app-task-list>
+<router-outlet></router-outlet>
+<!--<br><br><br><br><br><br>-->
+<!--<div>-->
+<!--  <nav>-->
+<!--    <a routerLink="/tasks">Heroes</a>-->
+<!--  </nav>-->
+<!--</div>-->
+
+
 

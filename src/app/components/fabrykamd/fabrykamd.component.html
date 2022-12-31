@@ -1,0 +1,55 @@
+<div id="div1">
+  <div>
+    <p><strong>Fabryka Metoda Wytwórcza</strong> to wzorzec projektowy, który polega na utworzeniu klasy zawierającej metodę wytwórczą, która jest odpowiedzialna za tworzenie obiektów. Metoda wytwórcza zapewnia jedno miejsce do zdefiniowania logiki tworzenia obiektów, dzięki czemu jest łatwiej utrzymać kod i go naprawić.</p>
+
+    <p>Klasa fabryki ma jedną lub więcej metod wytwórczych, które przyjmują argumenty i zwracają utworzony obiekt. Metody wytwórcze mogą być ogólne, takie jak 'utwórzObiekt()' lub bardziej szczegółowe, takie jak 'utwórzDokumentTekstowy()', 'utwórzDokumentPDF()' itp. </p>
+
+    <p>Fabryka Metoda Wytwórcza jest przydatna, gdy istnieje duża liczba podobnych obiektów, które są tworzone w różnych miejscach w kodzie. Pozwala to zmniejszyć liczbę różnych klas tworzących te obiekty, a także zmniejszyć liczbę koniecznych zmian, gdy trzeba dokonać zmian w implementacji tworzenia obiektów.</p>
+    <br>
+    <br>
+    <img src="http://127.0.0.1:8081/files/fabrykamd.png" />
+    <br>
+    <div id="div2">
+      <p><strong>Product</strong> deklaruje interfejs, który jest wspólny dla wszystkich obiektów zwracanych przez twórcę oraz jego podklasy</p>
+      <p><strong>ProductA</strong> i <strong>ProductB</strong> są różnymi implementacjami interfejsu produktów</p>
+      <p>Klasa <strong>Creator</strong> deklaruje metodę wytwórczą, która zwraca nowe
+        obiekty-produkty. Istotne jest, że typ zwracany przez tę metodę jest zgodny z interfejsem produktu.</p>
+      <p><strong>CreatorA</strong> i <strong>CreatorB</strong> nadpisują bazową metodę wytwórczą, co
+        sprawia, że zwraca ona inny typ obiektu.</p>
+    </div>
+  </div>
+  <br><br>
+  <h1>Zadanie</h1>
+
+  <div id="div3">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zadanie polega na napisaniu programu w języku Java, który wykorzysta wzorzec projektowy Fabryka Metoda Wytwórcza do utworzenia obiektu pojazdu. Program powinien umożliwić użytkownikowi wybranie typu pojazdu, który chce utworzyć (Car, Motorcycle, Airplane itp.). Następnie program powinien utworzyć odpowiedni obiekt pojazdu za pomocą fabryki metoda wytwórcza w oparciu o informacje podane przez użytkownika.
+    <br>1.Stwórz interfejs Vehicle implementuje metodę startEngine(), która zwraca String
+    <br>2.Stwórz klasy pojazdów - Car, Motorcycle, Airplane implementują interfejs Vehicle
+    <br>3.Metodę wytwórczą masz zaimplementowaną, musisz stworzyć odpowiednią implementację klas i interfejsu
+  </div><br>
+
+  <strong>projekt początkowy do pobrania do zadania:</strong><br>
+  <a href="http://127.0.0.1:8081/files/FabrykaMD.zip" download>FabrykaMD.zip</a><br/><br/>
+  <!--  <input type="text" (change)="getName(name.value)" #name /> <br/>-->
+
+  <br>
+  <strong>Wybierz plik, a następnie rozpocznij test:</strong> <br>
+  <div class="file-upload">
+    <input type="file" hidden (change)="getFile($event)" #fileUpload/><br />
+    <button mat-raised-button color="primary" class="upload-btn" (click)="fileUpload.click()" style="margin-right: 50px">Wybierz plik</button>
+    <button type="button" (click)="submitData()" mat-raised-button color="primary">Rozpocznij test</button><br>
+    <!--    <mat-progress-bar mode="indeterminate" *ngIf="isTesting()"></mat-progress-bar>-->
+    <br>
+  </div>
+
+  <div *ngIf="IsListEmpty()">
+    <p *ngFor="let resultObject of results">
+      <b *ngIf="resultObject.isCorrect==true" style="color: green">poprawnie</b>
+      <b *ngIf="resultObject.isCorrect==false" style="color: red">niepoprawnie</b>
+      {{resultObject.outputData}}
+    </p>
+    <br><br>
+  </div>
+</div>
+
+

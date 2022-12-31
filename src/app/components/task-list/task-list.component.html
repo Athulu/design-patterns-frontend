@@ -1,13 +1,34 @@
 <div id="div1">
   <mat-selection-list #shoes [multiple]="false">
-    <mat-list-option *ngFor="let taskObject of tasks" [value]="taskObject">
-      {{taskObject.name}}
-    </mat-list-option>
-  </mat-selection-list>
+<!--    <a *ngFor="let taskObject of tasks">-->
+<!--        <mat-list-option>-->
+<!--            {{taskObject.name}}-->
+<!--        </mat-list-option>-->
+<!--    </a>-->
+<!--    <a>-->
+<!--      <mat-list-option>-->
+<!--          <nav>-->
+<!--            <a routerLink="/singleton">Singleton</a>-->
+<!--          </nav>-->
+<!--      </mat-list-option>-->
+<!--    </a>-->
 
-  <p>
-    Option selected: {{shoes.selectedOptions.hasValue() ? shoes.selectedOptions.selected[0].value : 'None'}}
-  </p>
+        <a *ngFor="let taskObject of tasks" routerLink="/{{taskObject.name}}" style="text-decoration: none;">
+            <mat-list-option>
+              <nav>
+                <b>{{taskObject.designPattern}}</b>
+              </nav>
+            </mat-list-option>
+        </a>
+    <br>
+    <a routerLink="/singleton" style="text-decoration: none;">
+      <mat-list-option>
+        <nav>
+          <b>Test wiedzy wzorców projektowych</b>
+        </nav>
+      </mat-list-option>
+    </a>
+  </mat-selection-list>
 </div>
 
 
