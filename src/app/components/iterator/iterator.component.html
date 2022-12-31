@@ -1,0 +1,50 @@
+<div id="div1">
+  <div>
+    <p><b>Iterator</b> to wzorzec projektowy, który umożliwia przechodzenie przez elementy zbioru w określonym porządku bez konieczności znajomości konkretnej struktury danych, która zawiera te elementy. Dzięki temu można uniknąć nadmiernego konfigurowania kodu lub stosowania dużej ilości warunków logicznych. Iterator wykorzystuje obiekt, który może uzyskać dostęp do elementów zbioru i wykonywać na nich określone operacje, takie jak wyznaczanie następnego elementu w porządku lub zwracanie elementu przed obecnym.</p>
+    <br>
+    <br>
+    <img src="http://127.0.0.1:8081/files/iterator.png" />
+    <br>
+    <div id="div2">
+      <p>Interfejs <b>Iterator</b> deklaruje działania niezbędne do sekwencyjnego przechodzenia przez elementy kolekcji: pobieranie kolejnego elementu, ustalenie bieżącej pozycji, powrót do pierwszego elementu.</p>
+      <p><b>ConcreteIterator</b> implementują specyficzne algorytmy przeglądania kolekcji. Obiekt iterator powinien samodzielnie śledzić postęp tego procesu. Pozwala to wielu iteratorom na jednoczesne przeglądanie tej samej kolekcji.</p>
+      <p>Interfejs <b>IterableCollection</b> deklaruje jedną lub więcej metod służących kompatybilności kolekcji z iteratorami. Zwracany typ metody musi być zadeklarowany jako interfejs iterator, aby konkretne kolekcje mogły zwracać różne rodzaje iteratorów.</p>
+      <p><b>ConcreteCollection</b> zwracają nowe instancje konkretnych klas iteratorów za każdym razem gdy klient ich zażąda. Pewnie ciekawi cię gdzie jest reszta kodu kolekcji? Nie martw się, powinien znajdować się w tej samej klasie. Po prostu te szczegóły nie są istotne dla konkretnego wzorca, więc je pomijamy.</p>
+      <p><b>Client</b> współpracuje zarówno z kolekcjami jak i iteratorami za pośrednictwem ich interfejsów. Dzięki temu nie jest sprzężony z konkretnymi klasami, pozwalając na pracę z różnymi kolekcjami i operatorami w tym samym kodzie klienta.</p>
+    </div>
+  </div>
+  <br><br>
+  <!--  ZADANIE-->
+  <h1>Zadanie</h1>
+
+  <div id="div3">
+    Twoim zadaniem bedzie implementacja wzorca projektowego Iterator. Powinien iterować w kolejności w jakiej są wpisane kolejne elementy tablicy names[] w klasie namesRepository.
+    Zaimplementuj odpowiednie metody zdefiniowane w interfejsach. Klasa NameRepostirory powinna implementować interfejs Container, a klasa zagdzieżdżona NewIterator implementować interfejs Iterator.
+    Więcej wskazówek znajdziesz w projekcie startowych do pobrania.
+  </div><br>
+
+  <strong>projekt początkowy do pobrania do zadania:</strong><br>
+  <a href="http://127.0.0.1:8081/files/Iterator.zip" download>Iterator.zip</a><br/><br/>
+  <!--  <input type="text" (change)="getName(name.value)" #name /> <br/>-->
+
+  <br>
+  <strong>Wybierz plik, a następnie rozpocznij test:</strong> <br>
+  <div class="file-upload">
+    <input type="file" hidden (change)="getFile($event)" #fileUpload/><br />
+    <button mat-raised-button color="primary" class="upload-btn" (click)="fileUpload.click()" style="margin-right: 50px">Wybierz plik</button>
+    <button type="button" (click)="submitData()" mat-raised-button color="primary">Rozpocznij test</button><br>
+    <!--    <mat-progress-bar mode="indeterminate" *ngIf="isTesting()"></mat-progress-bar>-->
+    <br>
+  </div>
+
+  <div *ngIf="IsListEmpty()">
+    <p *ngFor="let resultObject of results">
+      <b *ngIf="resultObject.isCorrect==true" style="color: green">poprawnie</b>
+      <b *ngIf="resultObject.isCorrect==false" style="color: red">niepoprawnie</b>
+      {{resultObject.outputData}}
+    </p>
+    <br><br>
+  </div>
+</div>
+
+

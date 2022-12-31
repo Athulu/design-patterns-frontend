@@ -1,0 +1,44 @@
+<div id="div1">
+  <div>
+    <strong>Singleton</strong> to sposób tworzenia jednej instancji obiektu i udostępniania jej w różnych miejscach programu. Instancja obiektu jest tworzona tylko jeden raz, a potem odwołujemy się do niej za pomocą tego samego wystąpienia. Jest to dość popularny wzorzec projektowy, który jest szczególnie przydatny, jeśli chodzi o obiekty systemowe, takie jak klasy Logger, które obsługują logi aplikacji. Singleton zapewnia dostęp do tego samego obiektu bez tworzenia wielu egzemplarzy tego samego obiektu. Umożliwia to zarządzanie zasobami w efektywny sposób.
+    <br>
+    <br>
+    <img src="http://127.0.0.1:8081/files/singleton.png" />
+  </div>
+  <br><br>
+  <h1>Zadanie</h1>
+
+  <div id="div3">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Napisz klasę "Logger" w języku Java, która wykorzystuje wzorzec projektowy singleton do zapewnienia jednej instancji dla całego programu. Klasa powinna posiadać metodę logMessage(), która pozwoli na zapisanie wiadomości do logu. Metoda powinna również udostępnić możliwość wyświetlenia wszystkich wiadomości w logu.
+  </div><br>
+
+  <strong>projekt początkowy do pobrania do zadania:</strong><br>
+  <a href="http://127.0.0.1:8081/files/Singleton.zip" download>Singleton.zip</a><br/><br/>
+<!--  <input type="text" (change)="getName(name.value)" #name /> <br/>-->
+
+  <br>
+  <strong>Wybierz plik, a następnie rozpocznij test:</strong> <br>
+  <div class="file-upload">
+    <input type="file" hidden (change)="getFile($event)" #fileUpload/><br />
+    <button mat-raised-button color="primary" class="upload-btn" (click)="fileUpload.click()" style="margin-right: 50px">Wybierz plik</button>
+    <button type="button" (click)="submitData()" mat-raised-button color="primary">Rozpocznij test</button><br>
+<!--    <mat-progress-bar mode="indeterminate" *ngIf="isTesting()"></mat-progress-bar>-->
+
+<!--    <div *ngIf="solution">-->
+<!--      <strong>Wynik: {{solution.resultsPoints}}%</strong>-->
+<!--    </div>-->
+    <br>
+  </div>
+
+  <div *ngIf="IsListEmpty()">
+    <p *ngFor="let resultObject of results">
+      <b *ngIf="resultObject.isCorrect==true" style="color: green">poprawnie</b>
+      <b *ngIf="resultObject.isCorrect==false" style="color: red">niepoprawnie</b>
+      {{resultObject.outputData}}
+    </p>
+    <br><br>
+  </div>
+
+</div>
+
+

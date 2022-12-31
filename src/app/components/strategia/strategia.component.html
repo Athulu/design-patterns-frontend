@@ -1,0 +1,48 @@
+<div id="div1">
+  <div>
+    <p><b>Strategia</b> to wzorzec projektowy, który umożliwia tworzenie skutecznych i skalowalnych rozwiązań projektowych dla różnych typów problemów. Strategia projektowa polega na zastosowaniu zestawu prostych zasad do tworzenia, wdrażania i modyfikowania rozwiązań projektowych. strategia projektowa może być wykorzystana we wszystkich etapach tworzenia projektu, od określenia celów projektu, przez określenie zasobów i zakresu, aż po wdrożenie i udoskonalenie projektu.</p>
+    <br>
+    <br>
+    <img src="http://127.0.0.1:8081/files/strategia.png" />
+    <br>
+    <div id="div2">
+      <p><b>Context</b> przechowuje odniesienie do jednej z konkretnych strategii i komunikuje się z jej obiektem za pośrednictwem interfejsu strategia.</p>
+      <p>Interfejs <b>Strategy</b> jest wspólny dla wszystkich konkretnych strategii. Deklaruje metodę za pomocą której kontekst uruchamia daną strategię.</p>
+      <p><b>Strategies</b> implementują różne warianty algorytmu z którego korzysta kontekst.</p>
+      <p><b>Client</b> tworzy określony obiekt strategii i przekazuje go kontekstowi. Kontekst eksponuje metodę setter pozwalającą klientom zamienić strategię skojarzoną z tym kontekstem w trakcie działania programu.</p>
+    </div>
+  </div>
+  <br><br>
+  <!--  ZADANIE-->
+  <h1>Zadanie</h1>
+
+  <div id="div3">
+  Twoim zadaniem jest implementacja wzorca projektowego Strategia. Musisz zaimplementować 3 klasy OperationAdd, OperationSubstract oraz OperationMultiply, które implementują interfejs Strategy.
+
+  </div><br>
+
+  <strong>projekt początkowy do pobrania do zadania:</strong><br>
+  <a href="http://127.0.0.1:8081/files/Strategia.zip" download>Strategia.zip</a><br/><br/>
+  <!--  <input type="text" (change)="getName(name.value)" #name /> <br/>-->
+
+  <br>
+  <strong>Wybierz plik, a następnie rozpocznij test:</strong> <br>
+  <div class="file-upload">
+    <input type="file" hidden (change)="getFile($event)" #fileUpload/><br />
+    <button mat-raised-button color="primary" class="upload-btn" (click)="fileUpload.click()" style="margin-right: 50px">Wybierz plik</button>
+    <button type="button" (click)="submitData()" mat-raised-button color="primary">Rozpocznij test</button><br>
+    <!--    <mat-progress-bar mode="indeterminate" *ngIf="isTesting()"></mat-progress-bar>-->
+    <br>
+  </div>
+
+  <div *ngIf="IsListEmpty()">
+    <p *ngFor="let resultObject of results">
+      <b *ngIf="resultObject.isCorrect==true" style="color: green">poprawnie</b>
+      <b *ngIf="resultObject.isCorrect==false" style="color: red">niepoprawnie</b>
+      {{resultObject.outputData}}
+    </p>
+    <br><br>
+  </div>
+</div>
+
+

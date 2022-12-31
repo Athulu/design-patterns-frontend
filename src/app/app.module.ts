@@ -11,12 +11,35 @@ import {MatButtonModule} from '@angular/material/button';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
+import { AppRoutingModule } from './app-routing.module';
+import { SingletonComponent } from './components/singleton/singleton.component';
+import { FabrykamdComponent } from './components/fabrykamd/fabrykamd.component';
+import { FabrykaabComponent } from './components/fabrykaab/fabrykaab.component';
+import { FasadaComponent } from './components/fasada/fasada.component';
+import { KompozytComponent } from './components/kompozyt/kompozyt.component';
+import { StrategiaComponent } from './components/strategia/strategia.component';
+import { IteratorComponent } from './components/iterator/iterator.component';
+import { ObserwatorComponent } from './components/obserwator/obserwator.component';
+import { DekoratorComponent } from './components/dekorator/dekorator.component';
+import { AdapterComponent } from './components/adapter/adapter.component';
+import {DownloadFileService} from "./services/download-file.service";
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskListComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    SingletonComponent,
+    FabrykamdComponent,
+    FabrykaabComponent,
+    FasadaComponent,
+    KompozytComponent,
+    StrategiaComponent,
+    IteratorComponent,
+    ObserwatorComponent,
+    DekoratorComponent,
+    AdapterComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +51,11 @@ import {MatListModule} from '@angular/material/list';
     FormsModule,
     ReactiveFormsModule,
     MatNativeDateModule,
-    MatListModule
+    MatListModule,
+    AppRoutingModule,
+    MatProgressBarModule
   ],
-  providers: [],
+  providers: [DownloadFileService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
