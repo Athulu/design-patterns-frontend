@@ -1,3 +1,50 @@
 <div id="div1">
-  <p>obserwator works!</p>
+  <div>
+    <p><b>Obserwator</b> to wzorzec projektowy, który służy do informowania obiektów zainteresowanych zmianami stanu innego obiektu.</p>
+    <br>
+    <br>
+    <img src="http://127.0.0.1:8081/files/obserwator.png" />
+    <br>
+    <div id="div2">
+      <p><b>Publisher</b> rozsyła zdarzenia interesujące inne obiekty. Zdarzenia te zachodzą gdy publikujący zmienia swój stan lub wykona jakieś obowiązki. Publikujący posiadają infrastrukturę dającą możliwość subskrybowania ich zdarzeń lub przerwania subskrypcji.</p>
+      <p>Gdy nastąpi nowe zdarzenie, nadawca przegląda listę subskrybentów i wywołuje metody powiadamiania zadeklarowane w ich interfejsach.</p>
+      <p>Interfejs <b>Subscriber</b> deklaruje interfejs powiadamiania. W większości przypadków składa się on z jednej metody aktualizuj. Metoda ta może przyjmować wiele parametrów pozwalających publikującemu przekazać za ich pomocą szczegóły dotyczące aktualizacji.</p>
+      <p><b>Subscribers</b> wykonują jakieś czynności w odpowiedzi na powiadomienia wysłane przez publikującego. Wszystkie te klasy muszą implementować ten sam interfejs, aby nadawca nie musiał być sprzęgnięty z ich konkretnymi klasami.</p>
+      <p>Zazwyczaj, subskrybenci potrzebują jakichś kontekstowych informacji aby poprawnie obsłużyć aktualizacje. Dlatego publikujący na ogół przekazują dane kontekstowe jako argumenty metody powiadamiania. Publikujący może przekazać samego siebie jako argument, umożliwiając subskrybentom pobranie sobie potrzebnych danych bezpośrednio.</p>
+      <p><b>Client</b> tworzy obiekty publikujące i subskrybujące osobno, po czym rejestruje subskrybentów by mogli otrzymywać aktualizacje od publikującego.</p>
+    </div>
+  </div>
+  <br><br>
+  <!--  ZADANIE-->
+  <h1>Zadanie</h1>
+
+  <div id="div3">
+    Stwórz nowego obserwatora, który będzie wywoływał funkcję automatycznie po aktualizacji stanu obiektu klasy Subject. Będziesz musiał w tym celu do jednej ze zmiennych obiektu klasy Subject podpiąć własnego obserwatora.
+    Więcej szczegółów jak to zrobić znajdziesz bezpośrednio w projekcie startowym do pobrania poniżej.
+  </div><br>
+
+  <strong>projekt początkowy do pobrania do zadania:</strong><br>
+  <a href="http://127.0.0.1:8081/files/Obserwator.zip" download>Obserwator.zip</a><br/><br/>
+  <!--  <input type="text" (change)="getName(name.value)" #name /> <br/>-->
+
+  <br>
+  <strong>Wybierz plik, a następnie rozpocznij test:</strong> <br>
+  <div class="file-upload">
+    <input type="file" hidden (change)="getFile($event)" #fileUpload/><br />
+    <button mat-raised-button color="primary" class="upload-btn" (click)="fileUpload.click()" style="margin-right: 50px">Wybierz plik</button>
+    <button type="button" (click)="submitData()" mat-raised-button color="primary">Rozpocznij test</button><br>
+    <!--    <mat-progress-bar mode="indeterminate" *ngIf="isTesting()"></mat-progress-bar>-->
+    <br>
+  </div>
+
+  <div *ngIf="IsListEmpty()">
+    <p *ngFor="let resultObject of results">
+      <b *ngIf="resultObject.isCorrect==true" style="color: green">poprawnie</b>
+      <b *ngIf="resultObject.isCorrect==false" style="color: red">niepoprawnie</b>
+      {{resultObject.outputData}}
+    </p>
+    <br><br>
+  </div>
 </div>
+
+

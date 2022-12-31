@@ -3,8 +3,18 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: auto;
-  width: 600px;
+  width: 800px;
   justify-content: center;
   text-align: center;
   font-family: Arial;
+  line-height: 25px;
+  font-size: 18px;
+}
+
+#div2{
+  text-align: left;
+}
+
+#div3{
+  text-align: left;
 }

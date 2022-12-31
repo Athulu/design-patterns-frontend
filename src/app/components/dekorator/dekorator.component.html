@@ -1,3 +1,50 @@
 <div id="div1">
-  <p>dekorator works!</p>
+  <div>
+    <p><b>Dekorator</b> jest używany do dynamicznego dodawania lub modyfikowania funkcjonalności istniejącego obiektu bez modyfikowania obiektu. Pozwala on tworzyć nowe interfejsy, które są połączeniem istniejącego interfejsu i dodanych funkcjonalności. Wzorzec dekoratora jest używany w różnych sytuacjach, w tym do łączenia różnych klas w celu tworzenia nowych funkcjonalności. Oznacza to, że może być używany do tworzenia nowych obiektów, które łączą zarówno istniejące klasy, jak i dodane funkcje. Jest to szczególnie przydatne w sytuacjach, gdy istniejący interfejs nie jest wystarczająco elastyczny lub kiedy jest wymagane wdrożenie nowej funkcjonalności.</p>
+    <br>
+    <br>
+    <img src="http://127.0.0.1:8081/files/dekorator.png" />
+    <br>
+    <div id="div2">
+      <p><b>Component</b> deklaruje interfejs wspólny zarówno dla nakładek, jak i opakowywanych obiektów.</p>
+      <p><b>ConcreteComponent</b> to klasa opakowywanych obiektów. Definiuje ona podstawowe zachowanie, które następnie można zmieniać za pomocą dekoratorów.</p>
+      <p>Klasa <b>Base Decorator</b> posiada pole przeznaczone na referencję do opakowywanego obiektu. Typ pola powinien być zadeklarowany jako interfejs komponentu, aby mogło przechować zarówno konkretne komponenty, jak i inne dekoratory. Dekorator bazowy deleguje wszystkie działania opakowywanemu obiektowi.</p>
+      <p><b>ConcreteDecorator</b> definiują dodatkowe zachowania które można przypisać do komponentów dynamicznie. Konkretni dekoratorzy nadpisują metody dekoratora bazowego i wykonują swoje działania albo przed, albo po wywołaniu metody klasy-rodzica.</p>
+      <p><b>Client</b> może opakowywać komponenty w wiele warstw dekoratorów, o ile działa na wszystkich obiektach poprzez interfejs komponentu.</p>
+    </div>
+  </div>
+  <br><br>
+  <!--  ZADANIE-->
+  <h1>Zadanie</h1>
+
+  <div id="div3">
+    Zaimplementuj wzorzec projektowy dekorator tworząc 2 klasy o nazwach LuxuryCar i SportsCar dziedziczące po klasie CarDecorator.
+    Konstruktor w obu klasach powinien przyjmować jako argument obiekt Car, a następnie wywoływać z tym argumentem konstruktor z klasy bazowej (użyj słowa kluczowego "super").
+    Nadpisując metodę assemble() pamiętaj, aby zwrócić wynik klasy bazowej ORAZ słowo ciąg znaków " Sport" lub " Luxury" w zależności od klasy (pamiętaj o spacji przed słowem.
+  </div><br>
+
+  <strong>projekt początkowy do pobrania do zadania:</strong><br>
+  <a href="http://127.0.0.1:8081/files/Dekorator.zip" download>Dekorator.zip</a><br/><br/>
+  <!--  <input type="text" (change)="getName(name.value)" #name /> <br/>-->
+
+  <br>
+  <strong>Wybierz plik, a następnie rozpocznij test:</strong> <br>
+  <div class="file-upload">
+    <input type="file" hidden (change)="getFile($event)" #fileUpload/><br />
+    <button mat-raised-button color="primary" class="upload-btn" (click)="fileUpload.click()" style="margin-right: 50px">Wybierz plik</button>
+    <button type="button" (click)="submitData()" mat-raised-button color="primary">Rozpocznij test</button><br>
+    <!--    <mat-progress-bar mode="indeterminate" *ngIf="isTesting()"></mat-progress-bar>-->
+    <br>
+  </div>
+
+  <div *ngIf="IsListEmpty()">
+    <p *ngFor="let resultObject of results">
+      <b *ngIf="resultObject.isCorrect==true" style="color: green">poprawnie</b>
+      <b *ngIf="resultObject.isCorrect==false" style="color: red">niepoprawnie</b>
+      {{resultObject.outputData}}
+    </p>
+    <br><br>
+  </div>
 </div>
+
+

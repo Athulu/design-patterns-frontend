@@ -1,4 +1,60 @@
 <div id="div1">
-  <p>kompozyt works!</p>
+  <div>
+    <p><b>Kompozyt</b> to wzorzec projektowy, który pozwala programistom tworzyć struktury drzewiaste składające się z obiektów prostych i złożonych. Obiekty te są połączone w sposób hierarchiczny, przez co użytkownik może wykonywać te same operacje na obiektach prostych i złożonych. Przykładem takiego wzorca jest drzewo folderów na dysku twardym, które składa się z folderów i plików. Użytkownik może wykonywać te same operacje na folderach i plikach, takie jak otwieranie, kopiowanie, usuwanie i przenoszenie.</p>
+    <br>
+    <br>
+    <img src="http://127.0.0.1:8081/files/kompozyt.png" />
+    <br>
+    <div id="div2">
+      <p>Interfejs <b>Component</b> opisuje operacje wspólne zarówno dla prostych, jak i złożonych elementów drzewa.</p>
+      <p><b>Leaf</b> jest podstawowym elementem drzewa i nie posiada elementów podrzędnych. Zazwyczaj, to właśnie komponenty-liście wykonują większość faktycznej pracy, ponieważ nie mają komu jej zlecić.</p>
+      <p><b>Composite</b> jest elementem posiadającym elementy podrzędne: liście, lub inne kontenery. Kontener nie zna konkretnych klas swojej zawartości. Komunikuje
+        się ze wszystkimi elementami podrzędnymi tylko poprzez interfejs komponentu.
+        Otrzymawszy żądanie, kontener deleguje pracę do swoich podelementów, przetwarza wyniki pośrednie i zwraca ostateczny
+        wynik klientowi.</p>
+      <p><b>Client</b> współpracuje ze wszystkimi elementami za pośrednictwem interfejsu komponentu. W wyniku tego klient może działać w taki sam sposób zarówno na prostych, jak i złożonych elementach drzewa.</p>
+    </div>
+  </div>
+  <br><br>
+  <!--  ZADANIE-->
+  <h1>Zadanie</h1>
+
+  <div id="div3">
+    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Napisz program, który będzie wykorzystywał wzorzec projektowy Kompozyt do tworzenia i przechowywania struktury drzewiastej obiektów.
+      <br>Program powinien:
+    <ul>
+      <li>umożliwiać tworzenie i przechowywanie struktury drzewa danych, która składa się z obiektów typu podrzędnego i nadrzędnego.</li>
+      <li>umożliwiać użytkownikowi wyświetlenie wybranego obiektu wraz z jego podrzędnymi obiektami.</li>
+      <li>umożliwiać dodawanie i usuwanie obiektów z drzewa danych.</li>
+    </ul>
+    <p>1. Stwórz klasę Leaf implementującą interfejs Composite<br>
+      2. Klasę CompositeNode uzupełnij o brakujące metody oraz konstruktor<br>
+      3. W klasie Main masz przygotowany przykładowy kod użycia<br></p>
+    <p>Więcej wskazówek znajdziesz w projekcie do pobrania poniżej</p>
+  </div><br>
+
+  <strong>projekt początkowy do pobrania do zadania:</strong><br>
+  <a href="http://127.0.0.1:8081/files/Kompozyt.zip" download>Kompozyt.zip</a><br/><br/>
+  <!--  <input type="text" (change)="getName(name.value)" #name /> <br/>-->
+
+  <br>
+  <strong>Wybierz plik, a następnie rozpocznij test:</strong> <br>
+  <div class="file-upload">
+    <input type="file" hidden (change)="getFile($event)" #fileUpload/><br />
+    <button mat-raised-button color="primary" class="upload-btn" (click)="fileUpload.click()" style="margin-right: 50px">Wybierz plik</button>
+    <button type="button" (click)="submitData()" mat-raised-button color="primary">Rozpocznij test</button><br>
+    <!--    <mat-progress-bar mode="indeterminate" *ngIf="isTesting()"></mat-progress-bar>-->
+    <br>
+  </div>
+
+  <div *ngIf="IsListEmpty()">
+    <p *ngFor="let resultObject of results">
+      <b *ngIf="resultObject.isCorrect==true" style="color: green">poprawnie</b>
+      <b *ngIf="resultObject.isCorrect==false" style="color: red">niepoprawnie</b>
+      {{resultObject.outputData}}
+    </p>
+    <br><br>
+  </div>
 </div>
+
 
