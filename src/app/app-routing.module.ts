@@ -11,6 +11,8 @@ import {IteratorComponent} from "./components/iterator/iterator.component";
 import {ObserwatorComponent} from "./components/obserwator/obserwator.component";
 import {DekoratorComponent} from "./components/dekorator/dekorator.component";
 import {AdapterComponent} from "./components/adapter/adapter.component";
+import {TestwiedzyComponent} from "./components/testwiedzy/testwiedzy.component";
+import {WynikComponent} from "./components/wynik/wynik.component";
 
 const routes: Routes = [
   { path: 'tasks', component: TaskListComponent},
@@ -24,6 +26,8 @@ const routes: Routes = [
   { path: 'obserwator', component: ObserwatorComponent},
   { path: 'dekorator', component: DekoratorComponent},
   { path: 'adapter', component: AdapterComponent},
+  { path: 'testwiedzy', component: TestwiedzyComponent},
+  { path: 'wynik', component: WynikComponent},
 ];
 
 @NgModule({

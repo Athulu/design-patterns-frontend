@@ -1,0 +1,98 @@
+<h1>Test jednokrotnego wyboru</h1>
+
+<!--<form>-->
+  <div id="div1">
+    <label><p class="paragraf">1. Potrzebujesz zaimplementować własny sposób przechodzenia po kolejnych elementach. Który wzorzec projektowy wykorzystasz?</p>
+      <radio-group>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[0]" name="o11" value="1">Iterator</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[0]" name="o12" value="2">Singleton</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[0]" name="o13" value="3">Fabryka Abstrakcyjna</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[0]" name="o14" value="4">Adapter</p>
+      </radio-group>
+    </label>
+    <label><p class="paragraf">2. Który wzorzec projektowy na pewno wykorzystasz potrzebując zaimplementować aplikację dla pizzeri, w której będziesz mógł samodzielnie dobierać składniki?</p>
+      <radio-group>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[1]" name="o21" value="1">Metoda Wytwórcza</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[1]" name="o22" value="2">Strategia</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[1]" name="o23" value="3">Dekorator</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[1]" name="o24" value="4">Fasada</p>
+      </radio-group>
+    </label>
+    <label><p class="paragraf">3. Potrzebujesz upewnić się, że powstanie w systemie tylko jedej obiekt danej klasy. Którym wzorcem się posłużysz?</p>
+      <radio-group>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[2]" name="o31" value="1">Singleton</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[2]" name="o32" value="2">Kompozyt</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[2]" name="o33" value="3">Dekorator</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[2]" name="o34" value="4">Iterator</p>
+      </radio-group>
+    </label>
+    <label><p class="paragraf">4. Chcesz, aby aplikacja powiadamiła cię, gdy twoja ulubiona drużyna piłkarska zdobędzie bramkę. Jakiego wzorca w tym celu użyjesz?</p>
+      <radio-group>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[3]" name="o41" value="1">Fasada</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[3]" name="o42" value="2">Metoda Abstrakcyjna</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[3]" name="o43" value="3">Metoda Wytwórcza</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[3]" name="o44" value="4">Obserwator</p>
+      </radio-group>
+    </label>
+    <label><p class="paragraf">5. Chcesz zmusić 2 obiekty o niekompatybilnych interfejsach do współpracy. Który wzorzec ci w tym pomoże?</p>
+      <radio-group>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[4]" name="o51" value="1">Iterator</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[4]" name="o52" value="2">Adapter</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[4]" name="o53" value="3">Dekorator</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[4]" name="o54" value="4">Singleton</p>
+      </radio-group>
+    </label>
+    <label><p class="paragraf">6. Potrzebujesz stworzyć rodziny spokrewnionych ze sobą obiektów bez określenia ich klas. Wybierz nazwę tego wzorca:</p>
+      <radio-group>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[5]" name="o61" value="1">Obserwator</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[5]" name="o62" value="2">Fabryka Abstrakcyjna</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[5]" name="o63" value="3">Singleton</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[5]" name="o64" value="4">Metoda Wytwórcza</p>
+      </radio-group>
+    </label>
+    <label><p class="paragraf">7. Korzystasz z aplikacji do znajdowania najkrótszej trasy. W aplikacji masz 3 możliwości ustawienia trasy: pieszo, rowerem oraz samochodem. W zależności od tego pojawiają ci się dostępne ścieżki. Który wzorzec został najprawdopodobniej zaimplementowany:</p>
+      <radio-group>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[6]" name="o71" value="1">Singleton</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[6]" name="o72" value="2">Kompozyt</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[6]" name="o73" value="3">Metoda Wytwórcza</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[6]" name="o74" value="4">Fasada</p>
+      </radio-group>
+    </label>
+    <label><p class="paragraf">8. Wzorzec, który proponuje ekstrakcję poszczególnych algorytmów wykonujących dane zadanie na różne sposoby i umieszczenie ich w odrębnych klasach.</p>
+      <radio-group>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[7]" name="o81" value="1">Kompozyt</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[7]" name="o82" value="2">Fasada</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[7]" name="o83" value="3">Iterator</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[7]" name="o84" value="4">Strategia</p>
+      </radio-group>
+    </label>
+    <label><p class="paragraf">9. Pozwala komponować obiekty w struktury drzewiaste i traktować je jak osobne obiekty:</p>
+      <radio-group>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[8]" name="o91" value="1">Kompozyt</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[8]" name="o92" value="2">Metoda Wytwórcza</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[8]" name="o93" value="3">Fasada</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[8]" name="o94" value="4">Adapter</p>
+      </radio-group>
+    </label>
+    <label><p class="paragraf">10. Wzorzec, który daje wygodny dostęp do użytecznej częsci podsystemu:</p>
+      <radio-group>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[9]" name="o101" value="1">Fabryka Abstrakcyjna</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[9]" name="o102" value="2">Adapter</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[9]" name="o103" value="3">Fasada</p>
+        <p class="pytanie"><input type="radio"  [(ngModel)]="data[9]" name="o104" value="4">Singleton</p>
+      </radio-group>
+    </label>
+    <!--1,3,1,4,2,2,3,4,1,3-->
+    <br>
+    <div style="text-align: center"><a routerLink="/wynik"><button mat-raised-button color="primary" class="upload-btn" (click)="getValues()" style="margin-right: 50px">Zakończ test</button></a></div>
+<!--    <input type="submit" value="Zakończ test">-->
+    <br><br>
+  </div>
+<!--</form>-->
+
+<!--      <mat-radio-group aria-label="Select an option">-->
+<!--        <p class="pytanie"><mat-radio-button [(ngModel)]="data" name="p1" value="1">Option 1</mat-radio-button></p>-->
+<!--        <p class="pytanie"><mat-radio-button [(ngModel)]="data" name="p2" value="2">Option 2</mat-radio-button></p>-->
+<!--        <p class="pytanie"><mat-radio-button [(ngModel)]="data" name="p3" value="3">Option 3</mat-radio-button></p>-->
+<!--        <p class="pytanie"><mat-radio-button [(ngModel)]="data" name="p4" value="4">Option 4</mat-radio-button></p>-->
+<!--      </mat-radio-group>-->

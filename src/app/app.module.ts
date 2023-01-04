@@ -1,4 +1,4 @@
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, forwardRef, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +24,12 @@ import { DekoratorComponent } from './components/dekorator/dekorator.component';
 import { AdapterComponent } from './components/adapter/adapter.component';
 import {DownloadFileService} from "./services/download-file.service";
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { TestwiedzyComponent } from './components/testwiedzy/testwiedzy.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { WynikComponent } from './components/wynik/wynik.component';
 
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +44,9 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     IteratorComponent,
     ObserwatorComponent,
     DekoratorComponent,
-    AdapterComponent
+    AdapterComponent,
+    TestwiedzyComponent,
+    WynikComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,10 +60,19 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatNativeDateModule,
     MatListModule,
     AppRoutingModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatRadioModule
   ],
-  providers: [DownloadFileService],
+  // providers:[DownloadFileService],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      multi: true,
+      useExisting: forwardRef(() => TestwiedzyComponent),
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
+
